@@ -11,4 +11,7 @@
     font-size: x-large;
     background-color: blueviolet;
 }
-
+p{
+    color: brown;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
