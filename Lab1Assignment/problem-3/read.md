@@ -1,0 +1,3 @@
+The extra functionality is making each page halloween themed
+
+All images have been changed to Halloween themed and there is a button that if you press it will place an image randomly on the screen and will continue to do so each time you press the button. Also changed the text to use a specific weird font and emojis and background colour was changed to orange. An alert also pops up to say a spooky message.
