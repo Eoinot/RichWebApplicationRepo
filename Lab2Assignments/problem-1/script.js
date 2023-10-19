@@ -51,9 +51,7 @@ function searchContacts(n){
   tr = table.getElementsByTagName("tr");
   let divResult = document.getElementById("noResult");
 
-
   var counter = tr.length-1;
-
 
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[n];
