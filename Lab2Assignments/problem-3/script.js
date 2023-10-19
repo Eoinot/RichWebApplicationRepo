@@ -1,32 +1,15 @@
-let array = []
-function test(){
-    fetch('https://jsonplaceholder.typicode.com/posts')
+let array = [];
+function test2(userName){
+    let test = fetch("https://api.github.com/users/" + userName)
     .then(response => response.json())
-    .then(json => function1(json))
+    return(test)
     // array = json
     // alert(array[0].title);
 }
 
-function test2(){
-    fetch('https://api.github.com/users')
-    .then(response => response.json())
-    .then(json => console.log(json))
-    // array = json
-    // alert(array[0].title);
-}
-
-function function1(json){
-
-    let arr = []
-    console.log(json.title.filter(word => word !== ' ').length <5)
-    // if (json.title.filter(word => word !== ' ').length <5){
-        
-    // }
-    // for(var i = 0;i < json.length;i++){
-    //     arr = json[i].title.split(' ')
-    //     if (arr.filter(word => word !== ' ').length <5){
-
-    //     }
-    // }
-    // alert(arr.length);
+function getUsername(){
+    userNameInput = document.getElementById("userName");
+    userName = userNameInput.value.trim();
+    results = test2(userName);
+    console.log(results);
 }

@@ -10,15 +10,22 @@ function test(){
 function test2(){
     fetch('https://api.github.com/users')
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(json)
     // array = json
     // alert(array[0].title);
 }
 
 function function1(json){
 
-    let arr = []
-    console.log(json.title.filter(word => word !== ' ').length <5)
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then((json) => {
+        const result = json
+        .filter((test) => test.title.split(" ").length >6)
+        .map((test) => test.title);
+
+        console.log(result);
+    })
     // if (json.title.filter(word => word !== ' ').length <5){
         
     // }
@@ -29,4 +36,6 @@ function function1(json){
     //     }
     // }
     // alert(arr.length);
+
+
 }
