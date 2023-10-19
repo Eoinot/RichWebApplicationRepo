@@ -46,7 +46,11 @@ table, th, td {
 }
 
 tr:nth-child(even) {
-    background-color: #b6b5b5;
+    background-color: #f2f2f2 ;
  }
+
+#noResult{
+    display: none;
+}
 
 

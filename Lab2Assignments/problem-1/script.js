@@ -24,18 +24,18 @@ function addContact() {
     const number = numberInput.value.trim();
     const email = emailInput.value.trim();
     console.log(regex.test(name));
-    if(name.length > 20 || regex.test(name) == false){
-      clearInput(nameInput,numberInput,emailInput);
-      return(alert("name needs to be less than 20 charecters and must contain only letters and spaces"));
-    }
-    if(number.length != 10){
-      clearInput(nameInput,numberInput,emailInput);
-      return(alert("Contact Number needs to be exactly 10 digits in length"));
-    }
-    if(email.includes(emailSyntax) == false){
-      clearInput(nameInput,numberInput,emailInput);
-      return(alert("Them email you provided does not use proper email structure"));
-    }
+    // if(name.length > 20 || regex.test(name) == false){
+    //   clearInput(nameInput,numberInput,emailInput);
+    //   return(alert("name needs to be less than 20 charecters and must contain only letters and spaces"));
+    // }
+    // if(number.length != 10){
+    //   clearInput(nameInput,numberInput,emailInput);
+    //   return(alert("Contact Number needs to be exactly 10 digits in length"));
+    // }
+    // if(email.includes(emailSyntax) == false){
+    //   clearInput(nameInput,numberInput,emailInput);
+    //   return(alert("Them email you provided does not use proper email structure"));
+    // }
     var temp = new Contact(name,number,email)
     contacts.push(temp);
     temp = "";
@@ -49,19 +49,36 @@ function searchContacts(n){
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
+  let divResult = document.getElementById("noResult");
+
+
+  var counter = tr.length-1;
+
 
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[n];
+    
     if (td) {
+      
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
+        // count = count + 1
       } else {
-        tr[i].style.display = "none";
+        tr[i].style.display = "none"
+        counter = counter-1
       }
+      
     }
   }
+  if(counter == 0 ){
+    divResult.style.display = "block";
+  }else{
+    divResult.style.display = "none";
+  }
+
 }
+
 
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
