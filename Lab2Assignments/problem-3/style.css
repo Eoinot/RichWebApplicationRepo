@@ -7,7 +7,7 @@ body {
     border: 1px solid;
     padding-left: 25px;
     margin-left: 25px;
-    margin-right: 74%;
+    margin-right: 30%;
     font-size:larger;
     font-weight: bold;
 }
@@ -16,6 +16,7 @@ body {
     display:none;
     border: 2px solid;
     margin: 20px;
+    margin-right: 60%;
 }
 
 img{
@@ -27,3 +28,55 @@ img{
     margin-bottom: 0px;
 }
 
+.titleUser{
+    font-weight: bold;
+    margin-left: 35%;
+    margin-top: 50px;
+    font-size: x-large;
+}
+.titleUserRepos{
+    font-weight: bold;
+    transform: translateY(80px);
+    margin-left: 61%;
+    font-size: x-large;
+}
+
+.ul-line-row{
+    list-style: none;
+    outline: 1px solid #000;
+    font-size: larger;
+}
+
+ul{
+    width: 750px;
+    height:678px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 5px;
+    float:right;
+    margin-right: 250px;
+    margin-top: 138px;
+    top: -50px;
+}
+
+
+.line-row {
+    list-style: none;
+    font-size: 0;
+    height: 22px;
+    margin-top: 2px;
+}
+
+button{
+    border-radius: 5px;
+    width: 115px;
+    height: 35px;
+    margin-left: 100px;
+}
+
+input{
+    margin-left: 50px;
+    margin-top: 25px;
+    width: 400px;
+    height: 35px;
+}
