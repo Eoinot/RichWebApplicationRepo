@@ -1,26 +1,26 @@
-let array = [];
-function API(userName){
+function API_UsernameDetails(userName){
     let divResult = document.getElementById("result");
-    let divRepoList = document.getElementById("repo-list");
     fetch("https://api.github.com/users/" + userName)
     .then((response) => response.json())
     .then((result) => {
         console.log(result)
 
         document.getElementById("result").innerHTML = `
-        <div class="user-details-div"> 
-            <p class="titleUser">User Profile</p>
             <img src = "${result.avatar_url}"/>
-            <p class="output"> Name: ${result.name}</p>
-            <p class="output"> UserName: ${result.login}</p>
-            <p class="output"> Email: ${result.email}</p>
-            <p class="output"> Location: ${result.location}</p>
-            <p class="output"> Number of gits: ${result.public_gists}</p>
-        </div>
+            <div class="divclass"> Name  ${result.name}</div>
+            <div class="divclass">UserName  ${result.login}</div>
+            <div class="divclass">Email  ${result.email}</div>
+            <div class="divclass">Location  ${result.location}</div>
+            <div class="divclass">Number of gits:  ${result.public_gists}</div>
         `
 
     })
+    divResult.style.display = "block";
+    //title.style.display = "block";
+}
 
+function API_UsernameReposList(userName){
+    let divRepoList = document.getElementById("repo-list");
     let list = document.getElementById("repo-list");
     fetch("https://api.github.com/users/" + userName +"/repos")
     .then((response) => response.json())
@@ -29,28 +29,33 @@ function API(userName){
         console.log(resultRepo.length)
 
         let ul = `
+        <div class="output-section-list-div">
         <p class="titleUserRepos">User Repos</p>
+        <p class="titleUser">User Profile</p>
         <ul>${resultRepo.map(resultRepo => 
-            `<li class="ul-line-row"> Name:   ${resultRepo.name} 
+            `<li class="ul-line-row"> Name   ${resultRepo.name} 
                 <br/>
                 <br/>
                 <br/>
-                  Description:  ${resultRepo.description} 
+                  Description  ${resultRepo.description} 
                 <br/>
                 <br/>
                 <br/>
             </li>`).join('')}
-             </ul>`;
+             </ul>
+             </div>`
+            
 
         list.innerHTML = ul;
 
     })
-    divResult.style.display = "block";
     divRepoList.style.display = "block";
 }
 
 function getUserDetails(){
     userNameInput = document.getElementById("userName");
     userName = userNameInput.value.trim();
-    results = API(userName);
+    userNameInput.value = "";
+    API_UsernameDetails(userName);
+    API_UsernameReposList(userName);
 }

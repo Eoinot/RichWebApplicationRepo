@@ -1,7 +1,8 @@
 
 let contacts = [];
 let regex = /^[A-Za-z\s]*$/;
-let emailSyntax ="@gmail.com";
+//let emailSyntax ="@gmail.com";
+let emailSyntax = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 class Contact {
     constructor(name, number, email) {
         this.name = name;
@@ -24,18 +25,18 @@ function addContact() {
     const number = numberInput.value.trim();
     const email = emailInput.value.trim();
     console.log(regex.test(name));
-    // if(name.length > 20 || regex.test(name) == false){
-    //   clearInput(nameInput,numberInput,emailInput);
-    //   return(alert("name needs to be less than 20 charecters and must contain only letters and spaces"));
-    // }
-    // if(number.length != 10){
-    //   clearInput(nameInput,numberInput,emailInput);
-    //   return(alert("Contact Number needs to be exactly 10 digits in length"));
-    // }
-    // if(email.includes(emailSyntax) == false){
-    //   clearInput(nameInput,numberInput,emailInput);
-    //   return(alert("Them email you provided does not use proper email structure"));
-    // }
+    if(name.length > 20 || regex.test(name) == false){
+      clearInput(nameInput,numberInput,emailInput);
+      return(alert("name needs to be less than 20 charecters and must contain only letters and spaces"));
+    }
+    if(number.length != 10){
+      clearInput(nameInput,numberInput,emailInput);
+      return(alert("Contact Number needs to be exactly 10 digits in length"));
+    }
+    if(emailSyntax.test(email) == false || email.length > 40){
+      clearInput(nameInput,numberInput,emailInput);
+      return(alert("Them email you provided does not use proper email structure"));
+    }
     var temp = new Contact(name,number,email)
     contacts.push(temp);
     temp = "";
@@ -71,6 +72,7 @@ function searchContacts(n){
   }
   if(counter == 0 ){
     divResult.style.display = "block";
+    alert("No Result Found")
   }else{
     divResult.style.display = "none";
   }
