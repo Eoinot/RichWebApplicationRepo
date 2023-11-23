@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+h1 {
+    text-align: left;
+    color: #333;
+}
+
+.label{
+    text-align:start;
+    color: #333;
+}
+
+.titleLabel{
+    margin-left: 50px;
+}
+
+.bodyLabel{
+    margin-left: 120px;
+}
+
+.select{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex: 0.5;
+    padding: 3px;
+}
+
+.input-section {
+    display: flex;
+    margin-bottom: 20px;
+    margin: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 1;
+}
+
+li {
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
