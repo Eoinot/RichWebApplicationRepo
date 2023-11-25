@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Note Taking App</title>
+    <script type="module" src="Pb-1Script.js"></script>
+    <script src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Note</h1>
+        <div class="inputSection">
+            <label class = label>Title:</label>
+            <input type="text" id="title-input" placeholder="Add a Title to the note ...">
+            <label class = label>Note Body:</label>
+            <input type="text" id="note-input" placeholder="Add a new note...">
+            <div class="select">
+                <label>Colour:</label>
+                <select id="colour" name="colour">
+                    <option value="red" selected>Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="orange">Orange</option>
+                    <option value="pink">Pink</option>
+                  </select>
+            </div>
+            <button id="button_input"">Add</button>
+        </div>
+        <div>
+            <h2>Notes:</h2>
+            <label class = "titleLabel">Title:</label>
+            <label class="bodyLabel">Body:</label>
+            <ul id="note-list"></ul>
+        </div>
+
+    </div>
+    
+</body>
+</html>
