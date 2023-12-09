@@ -10,7 +10,7 @@ function App() {
   };
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyD8Eyn8SeYjIuwMzNaAS-sCGqjmze6HtG8',
+    googleMapsApiKey: '',
     libraries,
   });
 
