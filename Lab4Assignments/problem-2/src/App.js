@@ -5,12 +5,12 @@ import './App.css';
 function App() {
   const libraries = ['places'];
   const mapContainerStyle = {
-    width: '50vw',
-    height: '50vh',
+    width: '25vw',
+    height: '25vh',
   };
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyD8Eyn8SeYjIuwMzNaAS-sCGqjmze6HtG8',
+    googleMapsApiKey: '',
     libraries,
   });
 
@@ -99,21 +99,25 @@ function App() {
           <div style={{ width: "90%", backgroundColor: element.colour }}>
             <h4>Title: {element.title}</h4>
             <p>Note: {element.message}</p>
+            <div>
+             <h4>Map:</h4>
+              <GoogleMap
+                mapContainerStyle={mapContainerStyle}
+                zoom={15}
+                center={{lat:lat,lng:lng}}
+
+              >
+                {/* <Marker position={center}/> */}
+                <Marker position={{lat:lat,lng:lng}}/>
+              </GoogleMap>
+            </div>
           </div>
           <button type="input" onClick={() => deleteNote(element.key)}> Delete</button>
           <button type="input" onClick={() => editNote(element.key)}> Edit</button>
         </div>
       ))}
-    </div><div>
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          zoom={15}
-          center={{lat:lat,lng:lng}}
-        >
-          {/* <Marker position={center}/> */}
-          <Marker position={{lat:lat,lng:lng}}/>
-        </GoogleMap>
-      </div></>
+    </div>
+    </>
   );
 }
 
